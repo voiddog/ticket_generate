@@ -75,7 +75,7 @@ class Template:
         cell(sheet, self.cashier_range, ticket_data.cashier)
         # key
         if self.key_range:
-            cell(sheet, self.key_range, ticket_data.date.timestamp())
+            cell(sheet, self.key_range, int(ticket_data.date.timestamp()))
         # print time
         if self.print_time_range:
             cell(sheet, self.print_time_range, ticket_data.date.strftime("%Y-%m-%d %H:%M:%S"))

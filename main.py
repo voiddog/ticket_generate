@@ -109,6 +109,8 @@ def render_template_a(start_day: datetime.date, end_day: datetime.date):
         file_path = "out/%s.xlsx" % date_item.strftime("%Y-%m-%d-%H-%M-%S")
         if os.path.exists(file_path):
             os.remove(file_path)
+        if not os.path.exists(os.path.dirname(os.path.abspath(file_path))):
+            os.mkdir(os.path.dirname(os.path.abspath(file_path)))
         wb.save(file_path)
         wb = xw.Book(file_path)
         wb.close()
